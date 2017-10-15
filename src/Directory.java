@@ -5,8 +5,14 @@ public class Directory {
 	public static void main(String[] args) {
 		boolean exit = false;
 		String selection;
+		String first;
+		String last;
+		String phone;
+		int count = 0;
 		Scanner sc = new Scanner(System.in);
 		LinkedList<Record> phoneDirectory = new LinkedList<Record>();
+		
+		
 		System.out.println("[][][][][][] Phone Directory [][][][][][]\n\n");
 		do {
 			selection = null;
@@ -15,7 +21,7 @@ public class Directory {
 
 			if (selection.equalsIgnoreCase("a")) {
 				if (phoneDirectory.size() == 0) {
-					System.out.println("Your phone directory is empty.");
+					System.out.println("\n\nYour phone directory is empty.\n");
 				} else {
 					System.out.println("First Name\t\tLast Name\t\tPhone Number");
 					System.out.println("_________________________________________________________________");
@@ -25,6 +31,16 @@ public class Directory {
 								
 					}
 				}
+			}
+			
+			else if(selection.equalsIgnoreCase("d")){
+				if(phoneDirectory.size()==0){
+					System.out.println("\n\nYour phone directory is empty.\n");
+					
+				}else{
+					phoneDirectory.remove(count);
+				}
+				
 			}
 
 		} while (exit == false);
