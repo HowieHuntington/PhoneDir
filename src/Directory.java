@@ -8,26 +8,28 @@ public class Directory {
 		String first;
 		String last;
 		String phone;
-		int count = 0;
+		int count = -1;
 		Scanner sc = new Scanner(System.in);
 		LinkedList<Record> phoneDirectory = new LinkedList<Record>();
 		
 		
-		System.out.println("[][][][][][] Phone Directory [][][][][][]\n\n");
+		System.out.println("[][][][][][] Phone Directory [][][][][][]");
 		do {
 			selection = null;
+			System.out.println();
 			showMenu();
+			System.out.println("\n");
 			selection = sc.next();
 
 			if (selection.equalsIgnoreCase("a")) {
 				if (phoneDirectory.size() == 0) {
 					System.out.println("\n\nYour phone directory is empty.\n");
 				} else {
-					System.out.println("First Name\t\tLast Name\t\tPhone Number");
-					System.out.println("_________________________________________________________________");
+					System.out.println("Current Records:");
+					System.out.println();
 					for (int i = 0; i < phoneDirectory.size(); i++) {
-						System.out.println(phoneDirectory.get(i).firstName + "\t\t" + phoneDirectory.get(i).lastName + 
-								"\t\t" + phoneDirectory.get(i).phoneNumber);
+						System.out.println(phoneDirectory.get(i).firstName + ", " + phoneDirectory.get(i).lastName + 
+								", " + phoneDirectory.get(i).phoneNumber);
 								
 					}
 				}
@@ -39,6 +41,49 @@ public class Directory {
 					
 				}else{
 					phoneDirectory.remove(count);
+					count = -1;
+				}
+				
+			}
+			
+			else if(selection.equalsIgnoreCase("f")){
+				if(count<0){
+					System.out.println("\n\nPlease Select a Record\n");
+				}else{
+					System.out.println("Enter the new 'First Name' field.");
+					String updateFirstName = sc.next();
+					phoneDirectory.get(count).setFirstName(updateFirstName);
+				}
+			}
+			
+			else if(selection.equalsIgnoreCase("l")){
+				if(count<0){
+					System.out.println("\n\nPlease Select a Record.\n");
+				}else{
+					System.out.println("Enter the new 'Last Name' field.");
+					String updateLastName = sc.next();
+					phoneDirectory.get(count).setLastName(updateLastName);
+				}
+			}
+			
+			else if(selection.equalsIgnoreCase("n")){
+				Record rec = new Record();				
+				System.out.println("\nNew Record\n\nFirst Name: " );
+				first = sc.next();
+				rec.setFirstName(first);
+				System.out.println("Last Name: ");
+				last = sc.next();
+				rec.setLastName(last);
+				System.out.println("Phone Number: ");
+				phone = sc.next();
+				rec.setPhoneNumber(phone);
+				phoneDirectory.add(rec);
+				count= phoneDirectory.size()-1;
+			}
+			
+			else if(selection.equalsIgnoreCase("p")){
+				if(count<0){
+					System.out.println("\n\nPlease Select a Record.\n");
 				}
 				
 			}
