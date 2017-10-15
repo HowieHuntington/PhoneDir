@@ -1,3 +1,4 @@
+/*new program*/
 import java.util.*;
 public class Record {
 	String firstName;

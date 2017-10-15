@@ -8,6 +8,9 @@ public class Directory {
 		String first;
 		String last;
 		String phone;
+		String updateFirstName;
+		String updateLastName;
+		String updatePhoneNumber;
 		int count = -1;
 		Scanner sc = new Scanner(System.in);
 		LinkedList<Record> phoneDirectory = new LinkedList<Record>();
@@ -51,7 +54,7 @@ public class Directory {
 					System.out.println("\n\nPlease Select a Record\n");
 				}else{
 					System.out.println("Enter the new 'First Name' field.");
-					String updateFirstName = sc.next();
+					updateFirstName = sc.next();
 					phoneDirectory.get(count).setFirstName(updateFirstName);
 				}
 			}
@@ -61,7 +64,7 @@ public class Directory {
 					System.out.println("\n\nPlease Select a Record.\n");
 				}else{
 					System.out.println("Enter the new 'Last Name' field.");
-					String updateLastName = sc.next();
+					updateLastName = sc.next();
 					phoneDirectory.get(count).setLastName(updateLastName);
 				}
 			}
@@ -84,6 +87,33 @@ public class Directory {
 			else if(selection.equalsIgnoreCase("p")){
 				if(count<0){
 					System.out.println("\n\nPlease Select a Record.\n");
+				}else{
+					System.out.println("Enter the new 'Last Name' field.");
+					updatePhoneNumber = sc.next();
+					phoneDirectory.get(count).setLastName(updatePhoneNumber);
+				}
+				
+			}
+			
+			else if(selection.equalsIgnoreCase("q")){
+				System.out.println("GoodBye!");
+				exit = true;
+			}
+			
+			else if(selection.equalsIgnoreCase("s")){
+				String searchFirst;
+				String searchLast;
+				int testCount = 0;
+				System.out.println("Enter First Name: ");
+				searchFirst = sc.next();
+				System.out.println("Enter Last Name: ");
+				searchLast = sc.next();
+				while(testCount < phoneDirectory.size()){
+					if(phoneDirectory.get(testCount).getFirstName() == searchFirst && phoneDirectory.get(testCount).getLastName() == searchLast){
+						count = testCount-1;
+					}else{
+						testCount++;
+					}
 				}
 				
 			}
@@ -104,47 +134,6 @@ public class Directory {
 		System.out.println("(s)\tSelect an existing record");
 	}
 
-	/*
-	 * public Directory(){
-	 * 
-	 * }
-	 * 
-	 * public void showAllRecords(){
-	 * System.out.println("First Name\t\tLast Name\t\tPhone Number");
-	 * System.out.println(
-	 * "_________________________________________________________________");
-	 * for(int i = 0; i < this.list.size(); i ++){
-	 * System.out.println(this.list.get(i).firstName + "\t\t" +
-	 * this.list.get(i).lastName + "\t\t" + this.list.get(i).phoneNumber); } }
-	 * 
-	 * public void deletCurrentRecord(){
-	 * 
-	 * }
-	 * 
-	 * public void firstNameChange(){
-	 * 
-	 * }
-	 * 
-	 * public void lastNameChange(){
-	 * 
-	 * }
-	 * 
-	 * public void addNewRecord(String firstName, String lastName, String
-	 * phoneNumber){ Record record = new Record(firstName, lastName,
-	 * phoneNumber); this.list.add(record); }
-	 * 
-	 * public void phoneNumberChange(){
-	 * 
-	 * }
-	 * 
-	 * public void quit(){
-	 * 
-	 * }
-	 * 
-	 * public void changeCurrentRecord(){
-	 * 
-	 * }
-	 * 
-	 */
-
+	
+	
 }
