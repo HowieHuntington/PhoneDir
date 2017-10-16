@@ -43,6 +43,10 @@ public class Record {
 		return firstName + " " + lastName + " " + phoneNumber;
 	}
 	
+	/*public int compareTo(Record r){
+		if(r.lastName.compareTo(this.lastName))
+	}*/
+	
 	
 
 }
