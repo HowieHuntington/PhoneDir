@@ -1,3 +1,4 @@
+/*new program*/
 import java.util.*;
 public class Record {
 	String firstName;
@@ -41,6 +42,10 @@ public class Record {
 	public String toString(){
 		return firstName + " " + lastName + " " + phoneNumber;
 	}
+	
+	/*public int compareTo(Record r){
+		if(r.lastName.compareTo(this.lastName))
+	}*/
 	
 	
 
